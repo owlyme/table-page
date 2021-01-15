@@ -1,4 +1,6 @@
 import Vue from 'vue'
+import validates from "./validateFormFns"
+import { createFormData } from "./tools"
 import $formModal from './form-modal'
 import formModal from './formModal'
 import table from './table'
@@ -19,3 +21,9 @@ Vue.prototype.$formModal = $formModal
 componentList.forEach(({ name, component }) => {
   Vue.component(name, component)
 })
+
+
+export default {
+  ...validates,
+  createFormData
+}

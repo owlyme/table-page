@@ -1,7 +1,7 @@
 import {
   checkNone,
   checkPhone
-} from '@/components/sn/validateFormFns.js'
+} from 's3n-table/validateFormFns'
 
 
 export function filterConditions() {

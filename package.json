@@ -1,9 +1,12 @@
 {
   "name": "s3n-table",
-  "version": "1.0.0",
-  "main": "index.js",
+  "version": "1.0.1",
+  "main": "src/index.js",
   "license": "MIT",
   "author": "owlyme",
+  "scripts": {
+    "p": "npm publish && git add . && git ci -am '..' && git push"
+  },
   "repository": {
     "type": "git",
     "url": "github.com:owlyme/table-page.git"
