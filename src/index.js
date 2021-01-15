@@ -22,10 +22,10 @@ componentList.forEach(({ name, component }) => {
   Vue.component(name, component)
 });
 
-export const validates.checkNone;
-export const validates.checkPhone;
-export const validates.checkNumber;
-export const tools.createFormData;
+export const checkNone = validates.checkNone;
+export const checkPhone = validates.checkPhone;
+export const checkNumber = validates.checkNumber;
+export const createFormData = tools.createFormData;
 
 export default {
   ...validates,
