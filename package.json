@@ -1,0 +1,14 @@
+{
+  "name": "s3n-table",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "author": "owlyme",
+  "repository": {
+    "type": "git",
+    "url": "github.com:owlyme/table-page.git"
+  },
+  "dependencies": {
+
+  }
+}
