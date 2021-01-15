@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import validates from "./validateFormFns"
+import * as validates from "./validateFormFns"
 import { createFormData } from "./tools"
 import $formModal from './form-modal'
 import formModal from './formModal'
