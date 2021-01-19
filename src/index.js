@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import $formModal from './form-modal'
 import formModal from './formModal'
 import table from './table'
@@ -14,8 +13,12 @@ const componentList = [
   { name: 'sn-box', component: box }
 ]
 
-Vue.prototype.$formModal = $formModal
+export default {
+  install: function(Vue, options) {
+    Vue.prototype.$formModal = $formModal(Vue, formModal)
 
-componentList.forEach(({ name, component }) => {
-  Vue.component(name, component)
-})
+    componentList.forEach(({ name, component }) => {
+      Vue.component(name, component)
+    })
+  }
+}

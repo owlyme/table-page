@@ -11,5 +11,7 @@
     "type": "git",
     "url": "github.com:owlyme/table-page.git"
   },
-  "dependencies": {}
+  "dependencies": {
+    "dayjs": "^1.10.3"
+  }
 }

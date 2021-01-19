@@ -1,28 +1,29 @@
-import Vue from 'vue'
-import formModal from './formModal'
+// import formModal from './formModal'
+export default function(Vue, formModal) {
 
-const Modal = Vue.extend({
-  extends: formModal
-})
-
-export default ({
-  editorConditions = [],
-  onSubmit = f => f,
-  onClose = f => f,
-  type = 'form',
-  ...others
-}) => {
-  const instance = new Modal().$mount()
-  Object.assign(instance, {
-    editorConditions,
-    type,
-    onSubmit,
-    onClose,
-    ...others
+  const Modal = Vue.extend({
+    extends: formModal
   })
 
-  document.querySelector('body').appendChild(instance.$el)
-  instance.showDialog = true
+  return ({
+    editorConditions = [],
+    onSubmit = f => f,
+    onClose = f => f,
+    type = 'form',
+    ...others
+  }) => {
+    const instance = new Modal().$mount()
+    Object.assign(instance, {
+      editorConditions,
+      type,
+      onSubmit,
+      onClose,
+      ...others
+    })
 
-  return instance
+    document.querySelector('body').appendChild(instance.$el)
+    instance.showDialog = true
+
+    return instance
+  }
 }
