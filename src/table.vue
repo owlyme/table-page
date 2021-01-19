@@ -6,6 +6,7 @@
       :conditions="conditions"
       @on-submit="onSubmit"
       @on-clear="onClear"
+      @on-form-change="onFormChange"
     />
 
     <el-table
@@ -146,6 +147,10 @@ export default {
       const param = (this.tableParam = { ...(this.tableParam || {}), ...arg })
       console.log(param)
       this.$emit('on-table-data', param)
+    },
+    //
+    onFormChange(param) {
+      this.$emit('on-condition-change', param)
     }
   }
 }

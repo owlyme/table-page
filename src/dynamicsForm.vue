@@ -19,6 +19,8 @@
             prepend,
             append,
             rules = [],
+            filterable,
+            disabled,
             ...other
           },
           index
@@ -40,6 +42,8 @@
             type="datetime"
             format="yyyy-MM-dd HH:mm:ss"
             value-format="yyyy-MM-dd HH:mm:ss"
+            :filterable="filterable"
+            :disabled="disabled"
           />
           <div class="text-oneline">{{ append || "" }}</div>
         </div>
@@ -91,8 +95,11 @@ export default {
     }
   },
   watch: {
-    conditions() {
-      // this.createConditionForm();
+    conditionForm: {
+      handler() {
+        this.onChange()
+      },
+      deep: true
     }
   },
   created() {
@@ -103,6 +110,10 @@ export default {
     this.initFormSubmit()
   },
   methods: {
+    onChange() {
+      const data = { ...this.conditionForm }
+      this.$emit('on-form-change', data)
+    },
     createEleTag(type) {
       return createEleTag(type)
     },

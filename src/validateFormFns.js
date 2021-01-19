@@ -26,3 +26,13 @@ export const checkNumber = (context, message) => (rule, value, callback) => {
   }
 }
 
+export const checkNumberInt = (context, message) => (rule, value, callback) => {
+  if (typeof value === 'number') {
+    callback()
+  } else if (!value || !value.length || /[^\d]/.test(value)) {
+    return callback(new Error(message || '请输入正确的数字'))
+  } else {
+    callback()
+  }
+}
+

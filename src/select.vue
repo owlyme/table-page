@@ -1,5 +1,11 @@
 <template>
-  <el-select class="radio" :value="value" @input="onChange">
+  <el-select
+    class="radio"
+    :value="value"
+    :filterable="filterable"
+    :disabled="disabled"
+    @input="onChange"
+  >
     <el-option
       v-for="item in options"
       :key="item.value"
@@ -21,6 +27,14 @@ export default {
     options: {
       type: Array,
       default: () => []
+    },
+    filterable: {
+      type: Boolean,
+      default: false
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
