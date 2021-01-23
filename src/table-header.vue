@@ -25,7 +25,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped >
 .table-header {
   display: flex;
   justify-content: space-between;

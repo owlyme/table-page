@@ -156,7 +156,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped >
 .table-index {
 }
 </style>
