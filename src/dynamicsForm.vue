@@ -59,10 +59,10 @@
 
 <script>
 import { createConditionForm, createEleTag } from './tools'
-import snTextarea from './textarea'
-import snRadio from './radio'
-import snCheckbox from './checkbox'
-import snSelect from './select'
+import snTextarea from './textarea.vue'
+import snRadio from './radio.vue'
+import snCheckbox from './checkbox.vue'
+import snSelect from './select.vue'
 export default {
   name: 'DynamicsForm',
   components: {
