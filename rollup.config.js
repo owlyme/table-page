@@ -10,7 +10,7 @@ export default {
   output: {
     file: 'dist/bundle.js',
     format: 'iife',
-    name: "snTable",
+    name: "eleTable",
   },
   external: ['vue'],
   plugins: [
