@@ -1,6 +1,6 @@
 {
-  "name": "s3n-table",
-  "version": "1.0.7",
+  "name": "element-table",
+  "version": "0.0.1",
   "main": "src/index.js",
   "license": "MIT",
   "author": "owlyme",
