@@ -22,7 +22,8 @@ export const formEleMap = {
   date: 'el-date-picker',
   textarea: 'sn-textarea',
   radio: 'sn-radio',
-  checkbox: 'sn-checkbox'
+  checkbox: 'sn-checkbox',
+  timerange: 'sn-time-range'
 }
 
 export const createEleTag = type => (formEleMap[type] || 'el-input')

@@ -26,6 +26,14 @@ export const checkNumber = (context, message) => (rule, value, callback) => {
   }
 }
 
+export const checkStepNumber = (context, step = 1) => (rule, value, callback) => {
+  if (value && (Number(value) % step)) {
+    return callback(new Error(`数字必须是${step}的倍数`))
+  } else {
+    callback()
+  }
+}
+
 export const checkNumberInt = (context, message) => (rule, value, callback) => {
   if (typeof value === 'number') {
     callback()

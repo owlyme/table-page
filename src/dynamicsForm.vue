@@ -1,7 +1,7 @@
 <template>
   <div v-if="conditionForm" class="dynamicsForm">
     <el-form
-      v-show="conditions.length"
+      v-show="conditions && conditions.length"
       ref="formName"
       :model="conditionForm"
       :label-width="labelWidth"
@@ -131,15 +131,18 @@ export default {
       const data = { ...this.conditionForm }
       this.$emit('on-submit', data)
     },
-    async submitForm() {
-      const valid = await this.$refs['formName'].validate()
-      if (valid) {
-        const data = { ...this.conditionForm }
-        this.$emit('on-submit', data)
-        return data
-      } else {
-        return false
-      }
+    submitForm() {
+      return new Promise((resolve) => {
+        this.$refs['formName'].validate((valid) => {
+          if (valid) {
+            const data = { ...this.conditionForm }
+            this.$emit('on-submit', data)
+            return resolve(data)
+          } else {
+            return resolve(false)
+          }
+        })
+      })
     },
     resetForm() {
       this.$refs['formName'].resetFields()
@@ -148,4 +151,4 @@ export default {
 }
 </script>
 
-<style scoped ></style>
+<style scoped></style>

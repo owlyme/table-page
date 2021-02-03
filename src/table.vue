@@ -8,6 +8,9 @@
       @on-clear="onClear"
       @on-form-change="onFormChange"
     />
+    <div>
+      <slot name="head" :data="multipleSelection" />
+    </div>
 
     <el-table
       ref="multipleTable"
@@ -156,7 +159,7 @@ export default {
 }
 </script>
 
-<style scoped >
+<style scoped>
 .table-index {
 }
 </style>

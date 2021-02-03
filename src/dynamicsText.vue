@@ -9,19 +9,22 @@
       size="mini"
     >
       <el-form-item
-        v-for="({ label, key, render, ...other }, index) in conditions"
+        v-for="({ label, key, render, format, ...other }, index) in conditions"
         :key="index"
         :label="label"
         :label-width="other.labelWidth"
       >
-        <template v-if="!render">
-          {{ conditionForm[key] }}
-        </template>
         <sn-render
-          v-else
+          v-if="render"
           :render="render"
           :data="{ value: conditionForm[key], formdata: conditionForm }"
         />
+        <template v-else-if="format">
+          {{ format(conditionForm[key]) }}
+        </template>
+        <template v-else>
+          {{ conditionForm[key] }}
+        </template>
       </el-form-item>
     </el-form>
   </div>
