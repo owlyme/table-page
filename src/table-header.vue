@@ -7,25 +7,25 @@
 
 <script>
 export default {
-  name: 'TableHeader',
+  name: "TableHeader",
   components: {},
   props: {
     title: {
       type: String,
-      default: ''
-    }
+      default: "",
+    },
   },
   data() {
-    return {}
+    return {};
   },
   watch: {},
   created() {},
   mounted() {},
-  methods: {}
-}
+  methods: {},
+};
 </script>
 
-<style scoped >
+<style scoped>
 .table-header {
   display: flex;
   justify-content: space-between;

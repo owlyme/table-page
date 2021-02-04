@@ -1,4 +1,5 @@
 // import formModal from './formModal'
+
 export default function(Vue, formModal) {
   const Modal = Vue.extend({
     extends: formModal

@@ -55,36 +55,36 @@
 </template>
 
 <script>
-import { createFormData } from './tools'
-import snDynamicsForm from './dynamicsForm.vue'
-import render from './render.js'
+import { createFormData } from "./tools";
+import snDynamicsForm from "./dynamicsForm.vue";
+import render from "./render.js";
 export default {
-  name: 'TableIndex',
+  name: "TableIndex",
   components: {
     snDynamicsForm,
-    render
+    render,
   },
   props: {
     conditions: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     tableHeader: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     tableData: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     selection: {
       type: Boolean,
-      default: true
+      default: true,
     },
     totalPage: {
       type: Number,
-      default: 0
-    }
+      default: 0,
+    },
   },
   data() {
     return {
@@ -93,70 +93,70 @@ export default {
       currentPage: 1,
       // totalPage: 1000,
       pageSize: 10,
-      pageSizes: [10, 20, 50, 100, 300, 500]
-    }
+      pageSizes: [10, 20, 50, 100, 300, 500],
+    };
   },
 
   watch: {},
   created() {
-    const { currentPage, pageSize } = this
+    const { currentPage, pageSize } = this;
     this.tableParam = {
       currentPage,
-      pageSize
-    }
+      pageSize,
+    };
   },
 
   mounted() {},
   methods: {
     // 筛选参数
     onSubmit(conditons) {
-      console.log(conditons)
-      this.onGetTableData(conditons)
+      console.log(conditons);
+      this.onGetTableData(conditons);
     },
     onClear(conditons) {
-      console.log(conditons)
-      this.onGetTableData(conditons)
+      console.log(conditons);
+      this.onGetTableData(conditons);
     },
     handleEdit(index, row) {
-      this.editorFormConditions = createFormData(this.editorConditions, row)
-      this.showDialog = true
+      this.editorFormConditions = createFormData(this.editorConditions, row);
+      this.showDialog = true;
     },
     handleDelete(index, row) {
-      console.log(index, row)
+      console.log(index, row);
     },
 
     // 选择列表
     handleSelectionChange(val) {
-      this.multipleSelection = val
-      console.log(val)
+      this.multipleSelection = val;
+      console.log(val);
     },
 
     // 分页
     handleSizeChange(e) {
-      const { currentPage } = this
-      const pageSize = (this.pageSize = e)
-      this.onPageChange(currentPage, pageSize)
+      const { currentPage } = this;
+      const pageSize = (this.pageSize = e);
+      this.onPageChange(currentPage, pageSize);
     },
     handleCurrentChange(e) {
-      const { currentPage, pageSize } = this
-      this.onPageChange(currentPage, pageSize)
+      const { currentPage, pageSize } = this;
+      this.onPageChange(currentPage, pageSize);
     },
     onPageChange(currentPage, pageSize) {
-      this.$emit('on-page-change', { currentPage, pageSize })
-      this.onGetTableData({ currentPage, pageSize })
+      this.$emit("on-page-change", { currentPage, pageSize });
+      this.onGetTableData({ currentPage, pageSize });
     },
     // 调用接口
     onGetTableData(arg = {}) {
-      const param = (this.tableParam = { ...(this.tableParam || {}), ...arg })
-      console.log(param)
-      this.$emit('on-table-data', param)
+      const param = (this.tableParam = { ...(this.tableParam || {}), ...arg });
+      console.log(param);
+      this.$emit("on-table-data", param);
     },
     //
     onFormChange(param) {
-      this.$emit('on-condition-change', param)
-    }
-  }
-}
+      this.$emit("on-condition-change", param);
+    },
+  },
+};
 </script>
 
 <style scoped>

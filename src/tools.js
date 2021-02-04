@@ -38,7 +38,7 @@ export function createConditionForm(arr) {
   return form
 }
 
-export function createFormData(arr, data) {
+export function createFormData(arr, data = {}) {
   return (arr || []).reduce((acc, item) => {
     isValidateCondition(item)
     const { label, key, type, ...other } = item
@@ -52,3 +52,7 @@ export function createFormData(arr, data) {
     return acc
   }, [])
 }
+
+export default [
+  createFormData,
+]

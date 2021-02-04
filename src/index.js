@@ -6,6 +6,7 @@ import tableHeader from './table-header.vue'
 import box from './box.vue'
 import timeRange from './timeRange'
 import select from './select'
+import { createFormData } from './tools'
 const componentList = [
   { name: 'sn-form-modal', component: formModal },
   { name: 'sn-table', component: table },
@@ -18,8 +19,8 @@ const componentList = [
 
 const SnTable = {
   install: function(Vue, options) {
-    Vue.prototype.$formModal = $formModal(Vue, formModal)
-
+    Vue.prototype.$snFormModal = $formModal(Vue, formModal)
+    Vue.prototype.$snInitFormData = createFormData
     componentList.forEach(({ name, component }) => {
       Vue.component(name, component)
     })
